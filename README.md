@@ -1,14 +1,17 @@
 # clay-rt
 
-A Clojure library designed to ... well, that part is up to you.
+A demo to get std.lang working with clay
 
-## Usage
+## Other dependencies
 
-FIXME
+```
+npm -g install d3-node
+pip install matplotlib
+```
 
 ## License
 
-Copyright © 2025 FIXME
+Copyright © 2025 Chris Zheng
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
