@@ -36,6 +36,13 @@
 ;; Hiccup
 (kind/hiccup (html/tree +svg+))
 
+(kind/hiccup
+ [:script {:type "module"}
+  (!.js (:- :import shuffle :from
+            "'https://unpkg.com/lodash-es@4.17.21/shuffle.js'")
+        (var nums [1 2 3 4 5])
+        (console.log (shuffle nums)))])
+
 ;; creates a bash runtime
 (l/script
  :bash
@@ -55,7 +62,25 @@
 ;; creates a js runtime
 (l/script
  :js
- {:runtime :oneshot})
+ {:runtime :basic
+  })
+
+(require '[std.lang :as l]
+         '[std.lib :as h])
+
+(defn js-template
+  [& forms]
+  (h/$ (return
+        ((:- \(
+             (fn []
+               (return ~@forms))
+             \))))))
+
+(template '(+ 1 2 3))
+
+(defn.js add-10
+  [x]
+  (return (+ 1 2 3)))
 
 (kind/html 
  (!.js
